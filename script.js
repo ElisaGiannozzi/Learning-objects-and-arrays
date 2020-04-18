@@ -98,45 +98,76 @@ console.log(reverseArray(array));
 //Write a script that displays the reading status of the following books (either to the webpage or to the console).
 
 let myLibrary = [ 
-    {
-      author: 'Bill Gates',
-      title: 'The Road Ahead',
-      isRead: true
-    },
-    {
-      author: 'Steve Jobs',
-      title: 'Walter Isaacson',
-      isRead: true
-    },
-    {
-      author: 'Suzanne Collins',
-      title:  'Mockingjay: The Final Book of The Hunger Games', 
-      isRead: false
-  }];
+  {
+    author: 'Bill Gates',
+    title: 'The Road Ahead',
+    isRead: true
+  },
+  {
+    author: 'Steve Jobs',
+    title: 'Walter Isaacson',
+    isRead: true
+  },
+  {
+    author: 'Suzanne Collins',
+    title:  'Mockingjay: The Final Book of The Hunger Games', 
+    isRead: false
+}];
+
+// let myLibrary2 = myLibrary.map(function(book) {
+//   let newObject = {
+//     if (myLibrary.isRead === true) {
+//     string: `${book.title} is written by ${book.author}`
+//   } else {
+//     string: `${book.title} is written by ${book.author}`
+//   }
+//   };
+//   return newObject;
+// });
+// console.log(newObject);
 
 
 
-  /*Write a simple function that joins all elements of an array and returns a string. 
-  For example, join(["red", "green", "blue"], "+") will return "red+green+blue". Do not use join() function.*/ 
+/*Write a simple function that joins all elements of an array and returns a string. 
+For example, join(["red", "green", "blue"], "+") will return "red+green+blue". Do not use join() function.*/ 
 
 let colours = ["red", "green", "blue"]; 
 function joinElements(colours, separator = "+") {
-  let newArray = []; 
   for(let i = 0; i < colours.length; i++) {
-    newArray = newArray + colours[i] + separator; 
   }
-  return newArray; 
+  return colours = colours + separator; 
 }
 console.log(joinElements(colours)); 
 
 
 //Write a function that accepts an array of years and returns the number of leap years in the array.
 
+let years = [1994, 2020, 1960]; 
+let leapYears = years.filter(function(year) {
+  if ((year % 4 === 0) && (year % 100 !== 0) || (year % 400 === 0)) {
+    return true; 
+  } else {
+    return false; 
+  }
+}); 
 
-//Write a function that accepts an array and removes null, 0', "" (empty string), false, undefined and NaN values from the array and returns a new array without those values.
+console.log(leapYears); 
 
 
+//Write a function that accepts an array and removes null, 0', "" (empty string), false,
+//undefined and NaN values from the array and returns a new array without those values.
 
+
+let randomArray = [0, 'cookie', undefined, null, NaN, false, 'biscuit']; 
+let cleanArray = randomArray.filter(function(item) {
+  if ((item === 0) || (item === undefined) || (item === null) || (item === false) || (item != item)) {
+    return false; 
+  } else {
+    return true; 
+  }
+}); 
+
+console.log(cleanArray); 
 
 
 //Suppose we have an array of people.
@@ -296,12 +327,11 @@ let student1 = {
   lastname: 'Wood'
 };
 
-function displayStudentInfo() {
-  let fullName = `Your full name is ${this.name} ${this.lastname}`; 
-  return fullName; 
+function displayStudentInfo(student1) {
+  let {name, lastname} = student1; 
+  return `Your full name is ${name} ${lastname}`;
 }
 
-console.log(displayStudentInfo()) 
+console.log(displayStudentInfo(student1));  
 
-//NOT COMPLETED 
 
