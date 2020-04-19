@@ -114,30 +114,28 @@ let myLibrary = [
     isRead: false
 }];
 
-// let myLibrary2 = myLibrary.map(function(book) {
-//   let newObject = {
-//     if (myLibrary.isRead === true) {
-//     string: `${book.title} is written by ${book.author}`
-//   } else {
-//     string: `${book.title} is written by ${book.author}`
-//   }
-//   };
-//   return newObject;
-// });
-// console.log(newObject);
-
-
+for(let book of myLibrary) {
+  if (book.isRead) {
+    console.log(`I already read ${book.title} by ${book.author}. `);
+  }else  {
+        console.log(`I still need to read ${book.title} by ${book.author}.`);
+    }
+}
 
 /*Write a simple function that joins all elements of an array and returns a string. 
 For example, join(["red", "green", "blue"], "+") will return "red+green+blue". Do not use join() function.*/ 
 
 let colours = ["red", "green", "blue"]; 
-function joinElements(colours, separator = "+") {
+function joinElements(colours, separator) { 
+  let result = ''; 
   for(let i = 0; i < colours.length; i++) {
+    result += colours[i] + separator ; 
   }
-  return colours = colours + separator; 
+  return result; 
 }
-console.log(joinElements(colours)); 
+console.log(joinElements(colours, '+')); 
+
+//Please advise how not have the '+' at the end of the string. 
 
 
 //Write a function that accepts an array of years and returns the number of leap years in the array.
@@ -160,7 +158,7 @@ console.log(leapYears);
 
 let randomArray = [0, 'cookie', undefined, null, NaN, false, 'biscuit']; 
 let cleanArray = randomArray.filter(function(item) {
-  if ((item === 0) || (item === undefined) || (item === null) || (item === false) || (item != item)) {
+  if ((item === 0) || (item === undefined) || (item === null) || (item === false) || (isNaN(item))) {
     return false; 
   } else {
     return true; 
@@ -332,6 +330,4 @@ function displayStudentInfo(student1) {
   return `Your full name is ${name} ${lastname}`;
 }
 
-console.log(displayStudentInfo(student1));  
-
-
+console.log(displayStudentInfo(student1)); 
